@@ -7,7 +7,7 @@ var movimientos = [];
 // Representación de la grilla. Cada número representa a una pieza.
 // El 9 es la posición vacía
 var grilla = [
-    [1, 2, 3],
+    [2, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
 ];
@@ -16,6 +16,15 @@ var grilla = [
 Esta posición comienza siendo la [2, 2]*/
 var filaVacia = 2;
 var columnaVacia = 2;
+
+//Se crea esta variable vacía para guardar las fichas mal colocadas. 
+var fichaErronea = [];
+var fichaFinal = [];
+var grillaGanadora = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
 
 /* Esta función deberá recorrer el arreglo de instrucciones pasado por parámetro. 
 Cada elemento de este arreglo deberá ser mostrado en la lista con id 'lista-instrucciones'. 
@@ -39,12 +48,38 @@ function mostrarUltimoMovimiento(direccion) {
 /* Esta función va a chequear si el Rompecabezas esta en la posicion ganadora. 
 Existen diferentes formas de hacer este chequeo a partir de la grilla. */
 function chequearSiGano() {
-    //COMPLETAR
+  for (var i = 0; i < grilla.length; i++) {
+    for (var j = 0; j < grilla[i].length; j++) {
+      console.log(grilla[i][j]);
+      console.log(grillaGanadora[i][j]);
+      console.log(grilla[i][j] === grillaGanadora[i][j]);
+      if (grilla[i][j] !== grillaGanadora[i][j]) {
+        fichaErronea.push(grilla[i][j]);
+        console.log(fichaErronea);
+        return;
+      }
+    }  
+  }
+  mostrarCartelGanador();
 }
 
-// Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
+  /*
+  
+      if (grilla[i][j] !== grillaGanadora[i][j]) {
+        fichaErronea.push(grilla[i][j]);
+        console.log(fichaErronea);
+        console.log(grilla[i][j]);
+      }
+       
+    if (fichaErronea === []) {
+    mostrarCartelGanador();
+  }
+}
+  */
+
+  // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
-    //COMPLETAR
+  alert("Ganaste, Wache.");
 }
 
 /* Función que intercambia dos posiciones en la grilla.
