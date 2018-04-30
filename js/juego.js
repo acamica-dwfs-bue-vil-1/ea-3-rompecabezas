@@ -80,7 +80,8 @@ function chequearSiGano() {
 
   // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
-  alert("Ganaste, Wache.");
+  document.getElementById("alerta").style.display="flex";
+  console.log("ganaste");
 }
 
 /* Función que intercambia dos posiciones en la grilla.
@@ -101,15 +102,15 @@ function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPo
 
 // Actualiza la posición de la pieza vacía
 function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
-  for (var i = 0; i < grilla.length; i++) {
+  /*for (var i = 0; i < grilla.length; i++) {
     for (var j = 0; j < grilla[i].length; j++) {
-		  if (grilla[i][j] === 9) {
-        nuevaFila = i;
-			  nuevaColumna = j;
+		  if (grilla[i][j] === 9) { */
+        filaVacia = nuevaFila;
+        columnaVacia = nuevaColumna; 
 		  }
-    }
+    /*}
   }
-}
+}*/
 
 
 // Para chequear si la posicón está dentro de la grilla.
@@ -127,6 +128,7 @@ function moverEnDireccion(direccion) {
   if (direccion === codigosDireccion.ABAJO) {
     nuevaFilaPiezaVacia = filaVacia - 1;
     nuevaColumnaPiezaVacia = columnaVacia;
+    //actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);//Acá está el error.
   }
     
   // Mueve pieza hacia arriba, reemplazandola con la blanca
@@ -159,7 +161,7 @@ function moverEnDireccion(direccion) {
   //COMPLETAR: Agregar la dirección del movimiento al arreglo de movimientos
         movimientos.push(direccion);
     }
-    //chequearSiGano();
+    chequearSiGano();
 }
 
 
