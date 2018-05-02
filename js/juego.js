@@ -20,6 +20,7 @@ var columnaVacia = 2;
 //Se crea esta variable vacía para guardar las fichas mal colocadas. 
 var fichaErronea = [];
 var fichaFinal = []; //ver si esta es necesaria.
+var grillaInicial;
 var grillaGanadora = [
   [1, 2, 3],
   [4, 5, 6],
@@ -300,6 +301,7 @@ function iniciar() {
     mostrarInstrucciones(instrucciones);
     mezclarPiezas(30);
     capturarTeclas();
+    grillaInicial = grilla;
 }
 
 // Ejecutamos la función iniciar
