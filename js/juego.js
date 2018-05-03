@@ -1,5 +1,9 @@
 // Arreglo que contiene las intrucciones del juego 
-var instrucciones = ["Instrucción 1", "Instrucción 2", "Instrucción 3"];
+var instrucciones = [
+  "1- Utilizar las flechas del teclado para modificar la posición de las piezas.", 
+  "2- Ordenar las piezas hasta alcanzar el orden en el universo.", 
+  "3- Ganar."
+];
 
 // Arreglo para ir guardando los movimientos que se vayan realizando
 var movimientos = [];

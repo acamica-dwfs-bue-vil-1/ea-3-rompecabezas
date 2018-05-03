@@ -201,6 +201,11 @@ li::before {
   clear: both;
 }
 
+#pieza9::after {
+  content: '';
+  display: block;
+}
+
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }
