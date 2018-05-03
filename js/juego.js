@@ -165,6 +165,14 @@ function moverEnDireccion(direccion) {
     chequearSiGano();
 }
 
+//Funciones adicionales
+function repetirJugada () {
+  //reiniciar grilla
+  var grillaTemp = grilla;
+  intercambiarPosicionesGrilla(grilla[i], grilla[j], grillaInicial[i], grillaInicial[j]);
+  intercambiarPosicionesDOM('pieza' + grilla[i][j], 'pieza' + grillaInicial[i][j]);
+}
+
 
 //////////////////////////////////////////////////////////
 ////////A CONTINUACIÓN FUNCIONES YA IMPLEMENTADAS.////////
