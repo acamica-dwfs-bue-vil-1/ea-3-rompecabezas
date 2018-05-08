@@ -258,6 +258,7 @@ se mezclará todo el tablero. */
 
 function mezclarPiezas(veces) {
   if (veces <= 0) {
+    startTimer();
     return;
   }
   
@@ -290,6 +291,7 @@ function capturarTeclas() {
         var gano = chequearSiGano();
         if (gano) {
           setTimeout(function() {
+              stopTimer();
               mostrarCartelGanador();
               }, 500);
             }
@@ -310,3 +312,17 @@ function iniciar() {
 
 // Ejecutamos la función iniciar
 iniciar();
+
+var time = 0;
+var interval;
+function startTimer() {
+  var timer = document.getElementById('timer');
+  interval = setInterval(function(){
+    time++;
+    timer.innerHTML = time;
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(interval);
+}
