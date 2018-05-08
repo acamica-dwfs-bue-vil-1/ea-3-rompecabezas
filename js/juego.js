@@ -111,7 +111,7 @@ function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
 
 
 // Para chequear si la posicón está dentro de la grilla.
-function posicionValida(fila, columna) {
+function posicionValida(fila, columna) {      
     return fila >= 0 && fila < 3 && columna >= 0 && columna < 3;
 }
 
@@ -164,10 +164,8 @@ function moverEnDireccion(direccion) {
 //Funciones adicionales
 
 function repetirJugada () {
-  //reiniciar grilla
   var indice;
   var piezaACambiar;
-
   for (var i = 0; i < grilla.length; i++) {
     for (var j = 0; j < grilla[i].length; j++) {
       if (grilla[i][j] !== grillaInicial[i][j]) {
@@ -181,6 +179,8 @@ function repetirJugada () {
   var piezaVacia = devolverIndice(grilla, 9);
   filaVacia = piezaVacia[0];
   columnaVacia = piezaVacia[1];
+  //hacer que vayan cambiando las piezas cada medio segundo.
+  //setInterval(repetirMovimientos(), 500);
 }
 
 function devolverIndice(arr, k) {
@@ -194,9 +194,17 @@ function devolverIndice(arr, k) {
 
 function copiaGrilla (array) {
   for (let i = 0; i < grilla.length; i++) {
-     array[i] = grilla[i].slice();
-    
+     array[i] = grilla[i].slice();   
   }
+}
+
+function repetirMovimientos () {
+  movimientos.forEach(element => {
+    
+  });
+  /* for (let i = 0; i < movimientos.length; i++) {
+    moverEnDireccion(movimientos[i]); 
+  } */
 }
 
 //////////////////////////////////////////////////////////
@@ -301,6 +309,7 @@ function mezclarPiezas(veces) {
       mezclarPiezas(veces - 1);
     }, 100);
   copiaGrilla(grillaInicial);  
+  movimientos = [];
 }
 
 /* capturarTeclas: Esta función captura las teclas presionadas por el usuario. Javascript
