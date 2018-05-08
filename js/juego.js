@@ -20,7 +20,7 @@ var columnaVacia = 2;
 //Se crea esta variable vacía para guardar las fichas mal colocadas. 
 var fichaErronea = [];
 var fichaFinal = []; //ver si esta es necesaria.
-var grillaInicial;
+var grillaInicial = [];
 var grillaGanadora = [
   [1, 2, 3],
   [4, 5, 6],
@@ -51,12 +51,8 @@ Existen diferentes formas de hacer este chequeo a partir de la grilla. */
 function chequearSiGano() {
   for (var i = 0; i < grilla.length; i++) {
     for (var j = 0; j < grilla[i].length; j++) {
-      console.log(grilla[i][j]);
-      console.log(grillaGanadora[i][j]);
-      console.log(grilla[i][j] === grillaGanadora[i][j]);
       if (grilla[i][j] !== grillaGanadora[i][j]) {
         fichaErronea.push(grilla[i][j]);
-        console.log(fichaErronea);
         return false; //acá poner otra función que siga haciendo el recorrido y marque todas las que están mal.
       }
     }  
@@ -166,13 +162,42 @@ function moverEnDireccion(direccion) {
 }
 
 //Funciones adicionales
+
 function repetirJugada () {
   //reiniciar grilla
-  var grillaTemp = grilla;
-  intercambiarPosicionesGrilla(grilla[i], grilla[j], grillaInicial[i], grillaInicial[j]);
-  intercambiarPosicionesDOM('pieza' + grilla[i][j], 'pieza' + grillaInicial[i][j]);
+  var indice;
+  var piezaACambiar;
+
+  for (var i = 0; i < grilla.length; i++) {
+    for (var j = 0; j < grilla[i].length; j++) {
+      if (grilla[i][j] !== grillaInicial[i][j]) {
+       indice = devolverIndice(grilla, grillaInicial[i][j]);
+       piezaACambiar = grillaInicial[indice[0]][indice[1]];
+       intercambiarPosicionesDOM('pieza' + grilla[i][j], 'pieza' + grillaInicial[i][j]);
+       intercambiarPosicionesGrilla(i, j, indice[0], indice[1]);
+      }
+    }
+  }
+  var piezaVacia = devolverIndice(grilla, 9);
+  filaVacia = piezaVacia[0];
+  columnaVacia = piezaVacia[1];
 }
 
+function devolverIndice(arr, k) {
+  for (var i = 0; i < arr.length; i++) {
+    var index = arr[i].indexOf(k);
+    if (index > -1) {
+      return [i, index];
+    }
+  }
+}
+
+function copiaGrilla (array) {
+  for (let i = 0; i < grilla.length; i++) {
+     array[i] = grilla[i].slice();
+    
+  }
+}
 
 //////////////////////////////////////////////////////////
 ////////A CONTINUACIÓN FUNCIONES YA IMPLEMENTADAS.////////
@@ -275,6 +300,7 @@ function mezclarPiezas(veces) {
   setTimeout(function() {
       mezclarPiezas(veces - 1);
     }, 100);
+  copiaGrilla(grillaInicial);  
 }
 
 /* capturarTeclas: Esta función captura las teclas presionadas por el usuario. Javascript
@@ -309,7 +335,6 @@ function iniciar() {
     mostrarInstrucciones(instrucciones);
     mezclarPiezas(30);
     capturarTeclas();
-    grillaInicial = grilla;
 }
 
 // Ejecutamos la función iniciar
