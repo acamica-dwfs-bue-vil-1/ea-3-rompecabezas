@@ -162,7 +162,6 @@ function moverEnDireccion(direccion) {
 }
 
 //Funciones adicionales
-
 function repetirJugada () {
   var indice;
   var piezaACambiar;
@@ -179,8 +178,9 @@ function repetirJugada () {
   var piezaVacia = devolverIndice(grilla, 9);
   filaVacia = piezaVacia[0];
   columnaVacia = piezaVacia[1];
+
   //hacer que vayan cambiando las piezas cada medio segundo.
-  //setInterval(repetirMovimientos(), 500);
+  repetirMovimientos();
 }
 
 function devolverIndice(arr, k) {
@@ -198,14 +198,27 @@ function copiaGrilla (array) {
   }
 }
 
+var movimientosActuales = [];
 function repetirMovimientos () {
-  movimientos.forEach(element => {
-    
-  });
-  /* for (let i = 0; i < movimientos.length; i++) {
-    moverEnDireccion(movimientos[i]); 
-  } */
-}
+  movimientosActuales = movimientos.slice();   
+  var contador = 0;
+  setInterval (function() {
+    if (contador < movimientosActuales.length) {
+      moverEnDireccion(movimientosActuales[contador]);
+      contador++;
+      console.log(movimientosActuales);
+      movimientos = [];
+      copiaGrilla(grillaInicial);    
+    }else{
+      return;
+    }
+  }, 500);
+ }
+  // movimientos.forEach(element => {
+  //   setTimeout(function(){
+  //   moverEnDireccion(element);
+  //   }, 500) 
+  // }); 
 
 //////////////////////////////////////////////////////////
 ////////A CONTINUACIÓN FUNCIONES YA IMPLEMENTADAS.////////
