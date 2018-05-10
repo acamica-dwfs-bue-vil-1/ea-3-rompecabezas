@@ -220,6 +220,8 @@ function repetirMovimientos () {
   //   }, 500) 
   // }); 
 
+
+
 //////////////////////////////////////////////////////////
 ////////A CONTINUACIÓN FUNCIONES YA IMPLEMENTADAS.////////
 /////////NO TOCAR A MENOS QUE SEPAS LO QUE HACES//////////
@@ -332,7 +334,9 @@ en el futuro ya lo vas a aprender. Por ahora, sólo hay que entender que cuando
 se toca una tecla se hace algo en respuesta, en este caso, un movimiento */
 function capturarTeclas() {
   document.body.onkeydown = (function(evento) {
-    if (evento.which === codigosDireccion.ABAJO ||
+   if (evento.which === 82) {
+      repetirJugada();
+   }else if (evento.which === codigosDireccion.ABAJO ||
       evento.which === codigosDireccion.ARRIBA ||
       evento.which === codigosDireccion.DERECHA ||
       evento.which === codigosDireccion.IZQUIERDA) {
