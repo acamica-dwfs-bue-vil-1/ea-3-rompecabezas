@@ -17,9 +17,6 @@ Esta posición comienza siendo la [2, 2]*/
 var filaVacia = 2;
 var columnaVacia = 2;
 
-//Se crea esta variable vacía para guardar las fichas mal colocadas. 
-var fichaErronea = [];
-var fichaFinal = []; //ver si esta es necesaria.
 var grillaInicial = [];
 var grillaGanadora = [
   [1, 2, 3],
@@ -52,28 +49,12 @@ function chequearSiGano() {
   for (var i = 0; i < grilla.length; i++) {
     for (var j = 0; j < grilla[i].length; j++) {
       if (grilla[i][j] !== grillaGanadora[i][j]) {
-        fichaErronea.push(grilla[i][j]);
-        return false; //acá poner otra función que siga haciendo el recorrido y marque todas las que están mal.
+        return false; 
       }
     }  
   }
   return true;
-  //mostrarCartelGanador();
 }
-
-  /*
-  
-      if (grilla[i][j] !== grillaGanadora[i][j]) {
-        fichaErronea.push(grilla[i][j]);
-        console.log(fichaErronea);
-        console.log(grilla[i][j]);
-      }
-       
-    if (fichaErronea === []) {
-    mostrarCartelGanador();
-  }
-}
-  */
 
   // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
@@ -99,15 +80,9 @@ function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPo
 
 // Actualiza la posición de la pieza vacía
 function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
-  /*for (var i = 0; i < grilla.length; i++) {
-    for (var j = 0; j < grilla[i].length; j++) {
-		  if (grilla[i][j] === 9) { */
         filaVacia = nuevaFila;
         columnaVacia = nuevaColumna; 
 		  }
-    /*}
-  }
-}*/
 
 
 // Para chequear si la posicón está dentro de la grilla.
@@ -161,7 +136,7 @@ function moverEnDireccion(direccion) {
     chequearSiGano();
 }
 
-//Funciones adicionales
+//FUNCIONES AGREGADAS:
 var repetirJugada = function () {
   var indice;
   var piezaACambiar;
@@ -178,8 +153,6 @@ var repetirJugada = function () {
   var piezaVacia = devolverIndice(grilla, 9);
   filaVacia = piezaVacia[0];
   columnaVacia = piezaVacia[1];
-
-  //hacer que vayan cambiando las piezas cada medio segundo.
   repetirMovimientos();
 }
 
@@ -214,13 +187,6 @@ function repetirMovimientos () {
     }
   }, 500);
  }
-  // movimientos.forEach(element => {
-  //   setTimeout(function(){
-  //   moverEnDireccion(element);
-  //   }, 500) 
-  // }); 
-
-
 
 //////////////////////////////////////////////////////////
 ////////A CONTINUACIÓN FUNCIONES YA IMPLEMENTADAS.////////
