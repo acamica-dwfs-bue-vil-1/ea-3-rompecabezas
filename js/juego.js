@@ -162,7 +162,7 @@ function moverEnDireccion(direccion) {
 }
 
 //Funciones adicionales
-function repetirJugada () {
+var repetirJugada = function () {
   var indice;
   var piezaACambiar;
   for (var i = 0; i < grilla.length; i++) {
@@ -365,3 +365,4 @@ function iniciar() {
 
 // Ejecutamos la función iniciar
 iniciar();
+document.getElementById("boton-repetir").addEventListener("click", repetirJugada, false);

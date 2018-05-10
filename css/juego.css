@@ -37,7 +37,7 @@ li::before {
 }
 .col-40 {
   background: #FFF;
-  padding: 30px;
+  padding: 5%;
   color: rgb(235, 10, 10);
 }
 
@@ -183,6 +183,36 @@ li::before {
 }
 .boton-cerrar:hover {
   color: #E84A5F;
+}
+
+.boton-repetir {
+  display: flex;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  margin: 33%;
+  margin-bottom: 15%;
+}
+
+.boton-repetir button{
+  border: none;
+  color: floralwhite;
+  background-color: #E84A5F;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  text-decoration: none;
+  border-radius: 50%;
+  -webkit-transition-duration: 0.6s;
+  transition-duration: 0.6s;
+  -webkit-box-shadow: -8px 10px 31px -9px rgba(0,0,0,0.65);
+  -moz-box-shadow: -8px 10px 31px -9px rgba(0,0,0,0.65);
+  box-shadow: -8px 10px 31px -9px rgba(0,0,0,0.65);
+}
+
+.boton-repetir button:hover{
+  color: #E84A5F;
+  border: 2px solid #E84A5F;
+  background-color: white;
 }
 
 #objetivo img {
