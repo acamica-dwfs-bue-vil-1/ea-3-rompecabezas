@@ -1,5 +1,9 @@
 // Arreglo que contiene las intrucciones del juego 
-var instrucciones = ["Instrucción 1", "Instrucción 2", "Instrucción 3"];
+var instrucciones = [
+  'Mové las piezas con las flechas de tu teclado.', 
+  'Ordená las piezas como se muestra en la imagen "Objetivo".', 
+  'Presioná el botón o la tecla "R" para repetir tu jugada.'
+];
 
 // Arreglo para ir guardando los movimientos que se vayan realizando
 var movimientos = [];
@@ -331,4 +335,4 @@ function iniciar() {
 
 // Ejecutamos la función iniciar
 iniciar();
-document.getElementById("boton-repetir").addEventListener("click", repetirJugada, false);
+document.getElementById("boton-repetir").addEventListener('click', repetirJugada, false);
