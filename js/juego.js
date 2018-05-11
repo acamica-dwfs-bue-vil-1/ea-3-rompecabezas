@@ -136,7 +136,6 @@ function moverEnDireccion(direccion) {
   //COMPLETAR: Agregar la dirección del movimiento al arreglo de movimientos
         movimientos.push(direccion);
     }
-    chequearSiGano();
 }
 
 //Funciones adicionales
