@@ -18,8 +18,6 @@ var filaVacia = 2;
 var columnaVacia = 2;
 
 //Se crea esta variable vacía para guardar las fichas mal colocadas. 
-var fichaErronea = [];
-var fichaFinal = []; //ver si esta es necesaria.
 var grillaInicial = [];
 var grillaGanadora = [
   [1, 2, 3],
@@ -52,33 +50,16 @@ function chequearSiGano() {
   for (var i = 0; i < grilla.length; i++) {
     for (var j = 0; j < grilla[i].length; j++) {
       if (grilla[i][j] !== grillaGanadora[i][j]) {
-        fichaErronea.push(grilla[i][j]);
-        return false; //acá poner otra función que siga haciendo el recorrido y marque todas las que están mal.
+        return false; 
       }
     }  
   }
   return true;
-  //mostrarCartelGanador();
 }
-
-  /*
-  
-      if (grilla[i][j] !== grillaGanadora[i][j]) {
-        fichaErronea.push(grilla[i][j]);
-        console.log(fichaErronea);
-        console.log(grilla[i][j]);
-      }
-       
-    if (fichaErronea === []) {
-    mostrarCartelGanador();
-  }
-}
-  */
 
   // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
   document.getElementById("alerta").style.display="flex";
-  console.log("ganaste");
 }
 
 /* Función que intercambia dos posiciones en la grilla.
@@ -99,16 +80,9 @@ function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPo
 
 // Actualiza la posición de la pieza vacía
 function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
-  /*for (var i = 0; i < grilla.length; i++) {
-    for (var j = 0; j < grilla[i].length; j++) {
-		  if (grilla[i][j] === 9) { */
         filaVacia = nuevaFila;
         columnaVacia = nuevaColumna; 
 		  }
-    /*}
-  }
-}*/
-
 
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {      
@@ -206,7 +180,6 @@ function repetirMovimientos () {
     if (contador < movimientosActuales.length) {
       moverEnDireccion(movimientosActuales[contador]);
       contador++;
-      console.log(movimientosActuales);
       movimientos = [];
       copiaGrilla(grillaInicial);    
     }else{
@@ -214,13 +187,6 @@ function repetirMovimientos () {
     }
   }, 500);
  }
-  // movimientos.forEach(element => {
-  //   setTimeout(function(){
-  //   moverEnDireccion(element);
-  //   }, 500) 
-  // }); 
-
-
 
 //////////////////////////////////////////////////////////
 ////////A CONTINUACIÓN FUNCIONES YA IMPLEMENTADAS.////////
